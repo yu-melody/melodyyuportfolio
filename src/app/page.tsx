@@ -8,7 +8,7 @@ type Project = {
   name: string;
   description: string;
   date: string;
-  link: string;
+  slug: string;
 };
 
 export default function Home() {
@@ -17,37 +17,37 @@ export default function Home() {
       name: "dayloom",
       description: "A personal assistant system that integrates hardware, cloud, and software to streamline routines.",
       date: "In Progress",
-      link: "https://github.com/yu-melody/dayloom",
+      slug: "dayloom",
     },
     {
       name: "Rallify",
       description: "An app designed to organize and promote community rallies and events.",
       date: "June 2024",
-      link: "https://github.com/yu-melody/rallify",
+      slug: "rallify",
     },
     {
       name: "3Stones",
       description: "A mobile application to help everyday people invest in real estate",
       date: "December 2024",
-      link: "https://github.com/GenerateNU/3stones",
+      slug: "3stones",
     },
     {
       name: "Student Activity Calendar",
       description: "A tool to help students organize and track campus activities.",
       date: "May 2024",
-      link: "https://github.com/GenerateNU/sac",
+      slug: "sac",
     },
     {
       name: "Legacy",
-      description: "A storytelling app designed to preserve and share family histories.",
+      description: "An app aimed to help millennials complete their end-of-life planning.",
       date: "December 2023",
-      link: "https://github.com/yourusername/legacy",
+      slug: "legacy",
     },
     {
       name: "Barn",
-      description: "A collaborative project to build a functional barn structure in rural Vermont.",
+      description: "Constructing an 11x11x15 mini-barn from scratch.",
       date: "October 2020",
-      link: "https://insidious-sword-367.notion.site/Mini-Barn-13d1333a0d3980849d0bc99e8a050884",
+      slug: "barn",
     },
   ];
 
@@ -70,7 +70,7 @@ export default function Home() {
           <p style={{ margin: 0, lineHeight: "1.6", fontSize: "1rem", color: "#555" }}>
             Hey, I’m Melody! I study Computer Science and Philosophy at Northeastern University, where I explore the
             intersection of technology and humanity. I love writing clean code, product management, and figuring out what it
-            means to be human. When I'm not coding or pondering the good life, I can be found playing Bananagrams with
+            means to be human. When I'm not developing software or pondering the good life, I can be found playing Bananagrams with
             friends, baking pumpkin pie, or gallivanting through the great outdoors.
           </p>
           {/* Photo */}
@@ -204,10 +204,8 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
           {projects.map((project) => (
             <a
-              key={project.name}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              key={project.slug}
+              href={`/projects/${project.slug}`} // Point to the dynamic route
               style={{
                 display: "block",
                 padding: "1rem",
