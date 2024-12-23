@@ -1,101 +1,240 @@
+"use client";
+import TopRightLinks from "./components/TopRightLinks";
 import Image from "next/image";
 
+// Marks this file as a Client Component
+
+type Project = {
+  name: string;
+  description: string;
+  date: string;
+  link: string;
+};
+
 export default function Home() {
+  const projects: Project[] = [
+    {
+      name: "dayloom",
+      description: "A personal assistant system that integrates hardware, cloud, and software to streamline routines.",
+      date: "In Progress",
+      link: "https://github.com/yu-melody/dayloom",
+    },
+    {
+      name: "Rallify",
+      description: "An app designed to organize and promote community rallies and events.",
+      date: "June 2024",
+      link: "https://github.com/yu-melody/rallify",
+    },
+    {
+      name: "3Stones",
+      description: "A mobile application to help everyday people invest in real estate",
+      date: "December 2024",
+      link: "https://github.com/GenerateNU/3stones",
+    },
+    {
+      name: "Student Activity Calendar",
+      description: "A tool to help students organize and track campus activities.",
+      date: "May 2024",
+      link: "https://github.com/GenerateNU/sac",
+    },
+    {
+      name: "Legacy",
+      description: "A storytelling app designed to preserve and share family histories.",
+      date: "December 2023",
+      link: "https://github.com/yourusername/legacy",
+    },
+    {
+      name: "Barn",
+      description: "A collaborative project to build a functional barn structure in rural Vermont.",
+      date: "October 2020",
+      link: "https://insidious-sword-367.notion.site/Mini-Barn-13d1333a0d3980849d0bc99e8a050884",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
+    <div className="container">
+      <header style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem" }}>
+        <h1 style={{ margin: 0, fontSize: "1.5rem" }}>Melody Yu</h1>
+        <TopRightLinks />
+      </header>
+      <section>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center", // Vertically aligns the photo and text
+            gap: "1.5rem", // Adds space between the photo and text
+            marginBottom: "2rem", // Adds space below the section
+          }}
+        >
+          {/* Intro Text */}
+          <p style={{ margin: 0, lineHeight: "1.6", fontSize: "1rem", color: "#555" }}>
+            Hey, I’m Melody! I study Computer Science and Philosophy at Northeastern University, where I explore the
+            intersection of technology and humanity. I love writing clean code, product management, and figuring out what it
+            means to be human. When I'm not coding or pondering the good life, I can be found playing Bananagrams with
+            friends, baking pumpkin pie, or gallivanting through the great outdoors.
+          </p>
+          {/* Photo */}
+          <Image
+            src="/melody.jpeg"
+            alt="Photo of Melody"
+            width={180} // Adjust the size as needed
+            height={180}
+            style={{
+              // borderRadius: "50%", // Makes the image circular
+              objectFit: "cover", // Ensures the image fits nicely
+            }}
+          />
+        </div>
+        <h2 style={{ marginTop: "2rem" }}>What I’m Doing:</h2>
+        <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+          <li>Leading a team of engineers and designers in the development of an accessibility-first private family-sharing app with {" "}
+            <a href="https://generatenu.com/" target="_blank" rel="noopener noreferrer">
+              Generate Product Development
+            </a>{""}
             .
           </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+          <li>
+            Researching intellectual humility on Reddit with{" "}
+            <a href="https://www.pluralconnections.org/" target="_blank" rel="noopener noreferrer">
+              Plural Connections Group
+            </a>{""}
+            .
+          </li>
+          <li>
+            Designing and building {" "}
+            <a href="https://insidious-sword-367.notion.site/dayloom-1321333a0d39808a81eec02f097b190d" target="_blank" rel="noopener noreferrer">
+              dayloom</a>{""}
+            , an automated embedded system to streamline my morning and evening routines.
+          </li>
+          <li>Organizing {" "}
+            <a href="https://carsondang.com/31823-csds-renew-retreat" target="_blank" rel="noopener noreferrer">
+              Northeastern’s annual interfaith retreat</a> for the {" "}
+            <a href="https://spirituallife.northeastern.edu/" target="_blank" rel="noopener noreferrer">
+              Center for Spirituality, Dialogue, and Service
+            </a>{""}
+            .
+          </li>
+          <li>
+            Planning fun events (like gelato-eating) for 25 first-year {" "}
+            <a
+              href="https://honorsprogram.sites.northeastern.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Northeastern Honors
+            </a>{" "}
+            students.
+          </li>
+          <li>
+            Collaborating with{" "}
+            <a
+              href="https://www.veritas.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Veritas Forum
+            </a>{" "}
+            to plan a forum themed on human dignity.
+          </li>
+        </ul>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <h2 style={{ marginTop: "2rem" }}>What I’ve Done:</h2>
+        <ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+          <li>
+            Engineered software solutions for the multilingual name-matching team at{" "}
+            <a href="https://www.babelstreet.com/" target="_blank" rel="noopener noreferrer">
+              Babel Street
+            </a>.
+          </li>
+          <li>
+            Co-authored an{" "}
+            <a
+              href="https://aclanthology.org/2024.emnlp-main.327/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              EMNLP-accepted paper
+            </a>{" "}
+            on computational models for intellectual humility.
+          </li>
+          <li>
+            Worked as a camp counselor in rural Vermont serving Boston youth with{" "}
+            <a href="https://www.evkids.org/our-impact/programs/camp.html" target="_blank" rel="noopener noreferrer">
+              EVKids
+            </a>.
+          </li>
+          <li>
+            Studied data + software in{" "}
+            <a
+              href="https://www.khoury.northeastern.edu/pastries-and-projects-khoury-undergrads-study-data-and-software-in-belgium/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Leuven, Belgium
+            </a>.
+          </li>
+          <li>
+            Hiked in{" "}
+            <a
+              href="https://www.visitluxembourg.com/tour/traumschleife-schengen-grenzenlos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Luxembourg, Germany, and France
+            </a>{" "}
+            (all in one hike), Switzerland, Italy, Spain, New York, New Hampshire, Maine, and Vermont.
+          </li>
+          <li>
+            Built a{" "}
+            <a
+              href="https://insidious-sword-367.notion.site/Mini-Barn-13d1333a0d3980849d0bc99e8a050884"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              barn
+            </a>{" "}
+            (my proudest accomplishment to date).
+          </li>
+        </ul>
+
+      </section>
+
+      <section style={{ marginTop: "2rem" }}>
+        <h2>Projects</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+          {projects.map((project) => (
+            <a
+              key={project.name}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                padding: "1rem",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                textDecoration: "none",
+                color: "black",
+                backgroundColor: "#fff",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+              onMouseOver={(e) => {
+                (e.currentTarget.style.transform = "scale(1.02)"),
+                  (e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)");
+              }}
+              onMouseOut={(e) => {
+                (e.currentTarget.style.transform = "scale(1)"),
+                  (e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)");
+              }}
+            >
+              <h3 style={{ margin: "0 0 0.5rem 0", fontSize: "1.25rem" }}>{project.name}</h3>
+              <p style={{ margin: "0 0 0.5rem 0", fontSize: "0.9rem", color: "#555" }}>{project.description}</p>
+              <p style={{ margin: "0", fontSize: "0.8rem", color: "#999" }}>{project.date}</p>
+            </a>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
     </div>
   );
 }
