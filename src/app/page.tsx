@@ -9,6 +9,7 @@ type Project = {
   description: string;
   date: string;
   slug: string;
+  link: string;
 };
 
 export default function Home() {
@@ -18,36 +19,42 @@ export default function Home() {
       description: "A personal assistant system that integrates hardware, cloud, and software to streamline routines.",
       date: "In Progress",
       slug: "dayloom",
+      link: "https://github.com/yu-melody/dayloom",
     },
     {
       name: "Rallify",
       description: "An app designed to organize and promote community rallies and events.",
       date: "June 2024",
       slug: "rallify",
+      link: "https://github.com/yu-melody/rallify",
     },
     {
       name: "3Stones",
       description: "A mobile application to help everyday people invest in real estate",
       date: "December 2024",
       slug: "3stones",
+        link: "https://github.com/GenerateNU/sac",
     },
     {
       name: "Student Activity Calendar",
       description: "A tool to help students organize and track campus activities.",
       date: "May 2024",
       slug: "sac",
+      link: "https://github.com/GenerateNU/sac",
     },
     {
       name: "Legacy",
       description: "An app aimed to help millennials complete their end-of-life planning.",
       date: "December 2023",
       slug: "legacy",
+      link: "https://www.legacytheapp.com/",
     },
     {
       name: "Barn",
       description: "Constructing an 11x11x15 mini-barn from scratch.",
       date: "October 2020",
       slug: "barn",
+      link: "https://insidious-sword-367.notion.site/Mini-Barn-13d1333a0d3980849d0bc99e8a050884",
     },
   ];
 
@@ -204,8 +211,12 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
           {projects.map((project) => (
             <a
-              key={project.slug}
-              href={`/projects/${project.slug}`} // Point to the dynamic route
+              key={project.name}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              // key={project.slug}
+              // href={`/projects/${project.slug}`} // Point to the dynamic route
               style={{
                 display: "block",
                 padding: "1rem",
